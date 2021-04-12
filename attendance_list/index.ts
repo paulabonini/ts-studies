@@ -23,7 +23,6 @@ const list : Person[] = [
 
 const peopleConfirmed = list.filter(l => l.confirmed === true).map(peopleConfirmed => peopleConfirmed.name);
 
-console.log(peopleConfirmed);
-
-
-//console.log("Hello World!")
+peopleConfirmed.forEach(function (item) {
+    console.log(`- ${item}`);
+});
