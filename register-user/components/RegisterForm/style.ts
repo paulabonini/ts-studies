@@ -13,6 +13,8 @@ export const Input = styled.input `
     border-radius: 8px;
     border: none;
 
+    outline: none;
+
     margin-top: 8px;    
     padding: 8px 16px;
 
@@ -20,6 +22,11 @@ export const Input = styled.input `
     font-size: 16px;
 
     background-color: #C79898;
+
+    &:invalid {
+        box-shadow: 0 0 5px 1px red;
+    }
+
 `;
 
 export const FormField = styled.div`
