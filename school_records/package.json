@@ -1,0 +1,15 @@
+{
+  "name": "school_report",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:paulabonini/ts-studies.git",
+  "author": "Paula <paula.bonini@bexsbanco.com.br>",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
+  },
+  "scripts": {
+    "dev": "ts-node-dev --respawn index.ts"
+  }
+}
