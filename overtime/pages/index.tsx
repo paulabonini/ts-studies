@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "../styles/home.module.scss";
 
 export default function Home() {
-  let [variaveis, setVariaveis] = useState({
+  let [salary, setSalary] = useState({
     adicional: 0,
     base: 0,
     total: 0,
@@ -26,13 +26,15 @@ export default function Home() {
   const calcSalary = (event) => {
     event.preventDefault();
 
-    setVariaveis({
-      adicional: (state.time - 8) * (state.price * 1.5),
-      base: state.price * 8,
-      total: variaveis.base + variaveis.adicional,
-    });
+    const adicional = (state.time - 8) * (state.price * 1.5);
+    const base = state.price * 8;
+    const total = base + adicional;
 
-    // console.log(variaveis.base, variaveis.adicional, variaveis.total);
+    setSalary({
+      adicional,
+      base,
+      total,
+    });
   };
 
   return (
@@ -78,9 +80,18 @@ export default function Home() {
         </thead>
         <tbody>
           <tr>
-            <td>{`R$ ${variaveis.base}`}</td>
-            <td>{`R$ ${variaveis.adicional}`}</td>
-            <td>{`R$ ${variaveis.total}`}</td>
+            <td>{`${salary.base.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            })}`}</td>
+            <td>{`${salary.adicional.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            })}`}</td>
+            <td>{`${salary.total.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            })}`}</td>
           </tr>
         </tbody>
       </table>
