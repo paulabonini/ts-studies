@@ -1,6 +1,14 @@
 import { useState } from "react";
 
+import styles from "../styles/home.module.scss";
+
 export default function Home() {
+  let [variaveis, setVariaveis] = useState({
+    adicional: 0,
+    base: 0,
+    total: 0,
+  });
+
   let [state, setState] = useState({
     time: 0,
     price: 0,
@@ -15,73 +23,67 @@ export default function Home() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const calcSalary = (event) => {
     event.preventDefault();
 
-    let adicional = (state.time - 8) * (state.price * 1.5);
+    setVariaveis({
+      adicional: (state.time - 8) * (state.price * 1.5),
+      base: state.price * 8,
+      total: variaveis.base + variaveis.adicional,
+    });
 
-    let base = state.price * 8;
-    let total = base + adicional;
-
-    console.log(base, adicional, total);
+    // console.log(variaveis.base, variaveis.adicional, variaveis.total);
   };
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <h1>Cálculo de horas trabalhadas</h1>
-      <form id="form" onSubmit={handleSubmit}>
-        <label htmlFor="time">Horas trabalhadas</label>
-        <input
-          type="number"
-          id="time"
-          name="time"
-          min={8}
-          value={state.time}
-          onChange={handleChange}
-        />
-        <label htmlFor="price">Valor Hora</label>
-        <input
-          type="number"
-          id="price"
-          name="price"
-          min={20}
-          value={state.price}
-          onChange={handleChange}
-        />
-        <button type="submit">Calcular</button>
+      <form id="form">
+        <div className={styles.formFields}>
+          <div className={styles.field}>
+            <label htmlFor="time">Horas trabalhadas</label>
+            <input
+              type="number"
+              id="time"
+              name="time"
+              min={8}
+              value={state.time}
+              onChange={handleChange}
+            />
+          </div>
+          <div className={styles.field}>
+            <label htmlFor="price">Valor Hora</label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              min={20}
+              value={state.price}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        <button type="button" onClick={calcSalary}>
+          Calcular
+        </button>
       </form>
-      <table>
-        <tr>
-          <th>Base</th>
-          <th>Adicional</th>
-          <th>Total</th>
-        </tr>
-        <tr>
-          <td>valor x</td>
-          <td>valor y</td>
-          <td>valor x + y</td>
-        </tr>
+      <table className={styles.tableContainer}>
+        <thead>
+          <tr>
+            <th>Base</th>
+            <th>Adicional</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{`R$ ${variaveis.base}`}</td>
+            <td>{`R$ ${variaveis.adicional}`}</td>
+            <td>{`R$ ${variaveis.total}`}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );
 }
-
-// 1- O colaborador trabalha no mínimo 8h por dia (valor ideal) = R$ 160,00
-// 2- A cada hora adicional (acima do ideal) de trabalho, ele recebe 50% a mais = R$30/h
-// 3. O valor mínimo do salário/hora deve ser R$20,00
-// 4. Os valores dos cálculos devem ser exibidos somente depois de clicar no botão "Calcular"
-
-// time min 8
-// price min 20
-// if (time > 8) { price = price + 50% price}
-
-//
-
-// state.time state.price
-//
-//return :
-//base = price * 8
-//adicional = (time - 8) * (price + price/2)
-//total = base + adicional
-//
-//
