@@ -1,18 +1,7 @@
-import { createGlobalStyle} from 'styled-components';
+import styled from 'styled-components'
 
-export default createGlobalStyle`
 
-*  {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;    
-}
-
-body {
-    color: #FFFFFF;
-} 
-
-.container {
+export const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     
@@ -23,19 +12,21 @@ body {
 
 
     height: 100%;
-}
+`;
 
-.leftSide{
+export const LeftSide = styled.section `
     display: flex;
     align-items: center;
     justify-content: center;
-}
 
-img {
+    img {
     max-height: 100vh;
 }
+    
+`;
 
- .rightSide {
+
+ export const RightSide = styled.section `
     background-color: #190A05;
 
 
@@ -49,9 +40,9 @@ img {
     height: 70%;
 
     padding: 24px;
-}
-    
-h1 {
+
+
+    h1 {
     margin: 0 auto;
     margin-top: 10%;
     max-width: 70%;
@@ -66,5 +57,6 @@ h1 {
 
     color: black;
 }    
+`;
+    
 
-`

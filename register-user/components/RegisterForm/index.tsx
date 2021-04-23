@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
-import Link from "next/link";
 
 import { Button, Form, FormField, Input } from "./style";
 
@@ -23,7 +22,7 @@ export default function RegisterForm() {
       <FormField>
         <label htmlFor="birthDay">Data de nascimento</label>
         <Input
-          type="text"
+          type="date"
           id="birthDay"
           name="birthDay"
           required
@@ -51,15 +50,9 @@ export default function RegisterForm() {
           onChange={handleChange}
         />
       </FormField>
-      <Link href={"/user-page"}>
-        <Button type="submit">Cadastrar</Button>
-      </Link>
+      <Button type="submit">Cadastrar</Button>
     </Form>
   );
 }
 
 // 2. Não se preocupe com o formato do CPF, somente números no campo
-
-//após o preechimento do formulário, redirecionar para a página de perfil de usuário para que possa verificar minhas informações cadastradas no sistema
-//-- Use Query parameters
-//utilizar o recurso de roteamento do NextJS para passar informação de uma página pra outra

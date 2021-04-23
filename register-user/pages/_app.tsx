@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { UserContext } from "../contexts/UserContext";
+import GlobalStyle from "../styles/global";
+
+import { useRouter } from "next/router";
 
 function App({ Component, pageProps }) {
+  const router = useRouter();
+
   const [user, setUser] = useState({
     name: "",
     birthDay: "",
@@ -16,18 +21,11 @@ function App({ Component, pageProps }) {
       ...user,
       [event.target.name]: value,
     });
-
-    console.log(value);
-    console.log(user.name);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const name = user.name;
-    const birthDay = user.birthDay;
-    const cpf = user.cpf;
-    const profession = user.profession;
+    router.push("/user-page");
   };
 
   return (
@@ -38,6 +36,7 @@ function App({ Component, pageProps }) {
         handleSubmit,
       }}
     >
+      <GlobalStyle />
       <Component {...pageProps} />
     </UserContext.Provider>
   );
