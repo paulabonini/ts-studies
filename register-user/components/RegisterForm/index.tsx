@@ -1,24 +1,11 @@
-import { useRouter } from "next/router";
 import { useContext, useState } from "react";
-import { UserContext } from "../../contexts/UserContext/UserContext";
+import { UserContext } from "../../contexts/UserContext";
+import Link from "next/link";
+
 import { Button, Form, FormField, Input } from "./style";
 
 export default function RegisterForm() {
-  const [name, setName] = useState("");
-
-  const handleChange = (e) => {
-    setName(e.target.value);
-    console.log(name);
-  };
-
-  const router = useRouter();
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    router.push({
-      pathname: "/user-page",
-    });
-  }
+  const { handleChange, handleSubmit } = useContext(UserContext);
 
   return (
     <Form onSubmit={handleSubmit} name="form" id="form">
@@ -35,17 +22,38 @@ export default function RegisterForm() {
       </FormField>
       <FormField>
         <label htmlFor="birthDay">Data de nascimento</label>
-        <Input type="date" id="birthDay" name="birthDay" required />
+        <Input
+          type="text"
+          id="birthDay"
+          name="birthDay"
+          required
+          onChange={handleChange}
+        />
       </FormField>
       <FormField>
         <label htmlFor="cpf">CPF</label>
-        <Input type="text" maxLength={11} id="cpf" name="cpf" required />
+        <Input
+          type="text"
+          maxLength={11}
+          id="cpf"
+          name="cpf"
+          required
+          onChange={handleChange}
+        />
       </FormField>
       <FormField>
         <label htmlFor="profession">Profissão</label>
-        <Input type="text" id="profession" required />
+        <Input
+          type="text"
+          id="profession"
+          name="profession"
+          required
+          onChange={handleChange}
+        />
       </FormField>
-      <Button type="submit">Cadastrar</Button>
+      <Link href={"/user-page"}>
+        <Button type="submit">Cadastrar</Button>
+      </Link>
     </Form>
   );
 }
