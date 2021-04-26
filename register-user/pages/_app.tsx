@@ -21,6 +21,11 @@ function App({ Component, pageProps }) {
       ...user,
       [event.target.name]: value,
     });
+
+    if (user.cpf.length > 14) {
+      const myInput = document.getElementById("cpf") as HTMLInputElement;
+      myInput.setCustomValidity("Please, insert a valid number");
+    }
   };
 
   const handleSubmit = (event) => {

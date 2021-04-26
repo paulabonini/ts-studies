@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
 import { Button, Form, FormField, Input } from "./style";
@@ -25,15 +25,16 @@ export default function RegisterForm() {
           type="date"
           id="birthDay"
           name="birthDay"
+          max="2020-12-30"
           required
           onChange={handleChange}
         />
       </FormField>
       <FormField>
-        <label htmlFor="cpf">CPF</label>
+        <label htmlFor="cpf">CPF/CNPJ</label>
         <Input
           type="text"
-          maxLength={11}
+          minLength={11}
           id="cpf"
           name="cpf"
           required
@@ -54,5 +55,3 @@ export default function RegisterForm() {
     </Form>
   );
 }
-
-// 2. Não se preocupe com o formato do CPF, somente números no campo
