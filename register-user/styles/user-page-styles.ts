@@ -26,6 +26,6 @@ export const Header = styled.header `
     border-bottom: 2px solid gray;
 `;
 
-export const Data = styled.p `
+export const Data = styled.div `
     font-size: 20px;
 `;

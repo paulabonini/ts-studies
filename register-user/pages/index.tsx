@@ -1,17 +1,21 @@
 import RegisterForm from "../components/RegisterForm";
-import { Container, LeftSide, RightSide } from "../styles/home-styles";
+import {
+  Container,
+  BannerContainer,
+  FormContainer,
+} from "../styles/home-styles";
 
 export default function Home() {
   return (
     <>
       <Container>
-        <LeftSide>
+        <BannerContainer>
           <img src="/assets/darth.png" alt="" />
-        </LeftSide>
-        <RightSide>
+        </BannerContainer>
+        <FormContainer>
           <h1>Come to the dark side!</h1>
           <RegisterForm />
-        </RightSide>
+        </FormContainer>
       </Container>
     </>
   );

@@ -14,7 +14,7 @@ export const Container = styled.div`
     height: 100%;
 `;
 
-export const LeftSide = styled.section `
+export const BannerContainer = styled.section `
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,7 +26,7 @@ export const LeftSide = styled.section `
 `;
 
 
- export const RightSide = styled.section `
+ export const FormContainer = styled.section `
     background-color: #190A05;
 
 

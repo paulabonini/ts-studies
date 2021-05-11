@@ -12,9 +12,9 @@ export default function UserPage() {
         <h2>Bem vindo ao lado negro da força! Aqui estão seus dados:</h2>
       </Header>
       <Data>
-        Data de Nascimento: {user.birthDay} <br />
-        CPF: {user.cpf} <br />
-        Profissão: {user.profession}
+        <p>Data de Nascimento: {user.birthDay} </p>
+        <p> CPF: {user.cpf} </p>
+        <p>Profissão: {user.profession}</p>
       </Data>
     </UserContainer>
   );

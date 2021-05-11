@@ -34,7 +34,6 @@ export default function RegisterForm() {
         <label htmlFor="cpf">CPF/CNPJ</label>
         <Input
           type="text"
-          minLength={11}
           id="cpf"
           name="cpf"
           required

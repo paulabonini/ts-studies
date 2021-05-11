@@ -21,16 +21,24 @@ function App({ Component, pageProps }) {
       ...user,
       [event.target.name]: value,
     });
-
-    if (user.cpf.length > 14) {
-      const myInput = document.getElementById("cpf") as HTMLInputElement;
-      myInput.setCustomValidity("Please, insert a valid number");
-    }
+    const myInput = document.getElementById("cpf") as HTMLInputElement;
+    myInput.setCustomValidity("");
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    router.push("/user-page");
+
+    const cpfPattern = /(^\d{3}\.\d{3}\.\d{3}\-\d{2}$)|(^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$)/;
+
+    const matcher = user.cpf.match(cpfPattern);
+
+    const myInput = document.getElementById("cpf") as HTMLInputElement;
+
+    if (!matcher) {
+      myInput.setCustomValidity("Please, insert a valid number");
+    } else {
+      router.push("/user-page");
+    }
   };
 
   return (
