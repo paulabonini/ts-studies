@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <h1>Cálculo de horas trabalhadas</h1>
-      <form id="form">
+      <form id="form" onSubmit={calcSalary}>
         <div className={styles.formFields}>
           <div className={styles.field}>
             <label htmlFor="time">Horas trabalhadas</label>
@@ -66,9 +66,7 @@ export default function Home() {
           </div>
         </div>
 
-        <button type="button" onClick={calcSalary}>
-          Calcular
-        </button>
+        <button type="submit">Calcular</button>
       </form>
       <table className={styles.tableContainer}>
         <thead>
@@ -80,18 +78,24 @@ export default function Home() {
         </thead>
         <tbody>
           <tr>
-            <td>{`${salary.base.toLocaleString("pt-br", {
-              style: "currency",
-              currency: "BRL",
-            })}`}</td>
-            <td>{`${salary.adicional.toLocaleString("pt-br", {
-              style: "currency",
-              currency: "BRL",
-            })}`}</td>
-            <td>{`${salary.total.toLocaleString("pt-br", {
-              style: "currency",
-              currency: "BRL",
-            })}`}</td>
+            <td>
+              {salary.base.toLocaleString("pt-br", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </td>
+            <td>
+              {salary.adicional.toLocaleString("pt-br", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </td>
+            <td>
+              {salary.total.toLocaleString("pt-br", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </td>
           </tr>
         </tbody>
       </table>
