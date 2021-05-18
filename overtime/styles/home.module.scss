@@ -1,0 +1,75 @@
+.container {
+  position: relative;
+  background-color: white;
+  padding: 2rem 3rem 10rem;
+  border-radius: 8px;
+
+  h1 {
+    font-size: 48px;
+    text-align: center;
+    font-weight: 500;
+
+    margin-bottom: 3rem;
+  }
+
+  h1,
+  button {
+    text-transform: uppercase;
+  }
+
+  button {
+    width: 100%;
+    margin: 2rem 0;
+    padding: 1rem 2rem;
+
+    border-radius: 4px;
+    border: 0;
+
+    background: #3498db;
+
+    color: white;
+    font-weight: 400;
+    font-size: 24px;
+  }
+}
+
+.formFields {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  gap: 2rem;
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 24px;
+
+    input {
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-size: 24px;
+    }
+  }
+}
+
+.tableContainer {
+  text-align: center;
+  font-size: 24px;
+
+  width: 80%;
+
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+
+  thead {
+    background: #34495e;
+    color: white;
+
+    th {
+      padding: 0.5rem;
+    }
+  }
+}
